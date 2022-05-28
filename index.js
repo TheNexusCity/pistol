@@ -407,7 +407,7 @@ export default e => {
       subApp.updateMatrixWorld();
       
       subApp.dispatchEvent({
-        type: 'wearupdate',,
+        type: 'wearupdate',
         app: subApp,
         player:
         wear,
