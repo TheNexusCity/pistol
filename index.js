@@ -400,18 +400,20 @@ export default e => {
   let wearing = false;
   useWear(e => {
     const {wear} = e;
-    for (const subApp of subApps) {
-      subApp.position.copy(app.position);
-      subApp.quaternion.copy(app.quaternion);
-      subApp.scale.copy(app.scale);
-      subApp.updateMatrixWorld();
+    // for (const subApp of subApps) {
+    //   subApp.position.copy(app.position);
+    //   subApp.quaternion.copy(app.quaternion);
+    //   subApp.scale.copy(app.scale);
+    //   subApp.updateMatrixWorld();
       
-      subApp.dispatchEvent({
-        type: 'wearupdate',
-        wear,
-      });
-    }
-    wearing = wear;
+    //   subApp.dispatchEvent({
+    //     type: 'wearupdate',,
+    //     app: subApp,
+    //     player:
+    //     wear,
+    //   });
+    // }
+    wearing = !!wear;
   });
   
   useUse(e => {
