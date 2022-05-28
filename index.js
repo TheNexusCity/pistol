@@ -150,13 +150,18 @@ export default e => {
       gunApp.name = 'gun';
       gunApp.getPhysicsObjectsOriginal = gunApp.getPhysicsObjects;
       gunApp.getPhysicsObjects = fnEmptyArray;
+      
       subApps[1] = gunApp;
       gunApp.add(gunPointLight);
       
       const components = [
+        // {
+        //   "key": "instanceId",
+        //   "value": getNextInstanceId(),
+        // },
         {
           "key": "instanceId",
-          "value": getNextInstanceId(),
+          "value": app.instanceId,
         },
         {
           "key": "contentId",
@@ -192,6 +197,7 @@ export default e => {
       }
       await gunApp.addModule(m);
       scene.add(gunApp);
+      
       // metaversefile.addApp(gunApp);
       
       gunApp.addEventListener('use', e => {
