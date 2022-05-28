@@ -400,16 +400,12 @@ export default e => {
   let wearing = false;
   useWear(e => {
     const {wear, player} = e;
-    for (const subApp of subApps) {
-      subApp.position.copy(app.position);
-      subApp.quaternion.copy(app.quaternion);
-      subApp.scale.copy(app.scale);
-      subApp.updateMatrixWorld();
+    if (gunApp) {
       
-      subApp.dispatchEvent({
+      gunApp.dispatchEvent({
         type: 'wearupdate',
-        app: subApp,
-        player:
+        player,
+        app: gunApp,
         wear,
       });
     }
